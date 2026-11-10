@@ -3,6 +3,7 @@ import { MotionConfig } from 'motion/react';
 
 import { Panel } from '@/panel/Panel';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
+import { useSelectionInUrl } from '@/store/configurator/useSelectionInUrl';
 
 // three.js is most of the JavaScript, so the scene comes in its own chunk:
 // the options and the price show first, the sofa arrives right after.
@@ -17,6 +18,8 @@ const App: React.FC = () => {
   useEffect(() => {
     void load();
   }, [load]);
+
+  useSelectionInUrl();
 
   return (
     // Once, for the whole app: visitors who asked their system for less

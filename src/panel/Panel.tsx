@@ -7,6 +7,7 @@ import { useQuote } from './lib/useQuote';
 import { OptionGroup } from './OptionGroup';
 import { PanelHeader } from './PanelHeader';
 import { PriceBreakdown } from './PriceBreakdown';
+import { ShareButton } from './ShareButton';
 
 /**
  * Name and price on top, then the numbered option sections and the price
@@ -46,6 +47,10 @@ export const Panel: React.FC = () => {
 
         {quote && <PriceBreakdown quote={quote} />}
       </motion.div>
+
+      <footer className="shrink-0 border-t px-6 py-4">
+        <ShareButton catalog={catalog} selection={selection} />
+      </footer>
     </section>
   );
 };

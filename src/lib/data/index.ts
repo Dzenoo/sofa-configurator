@@ -26,7 +26,7 @@ export async function quote(selection: Selection): Promise<Quote> {
 
 // Pure helpers the UI needs to read a catalog, passed through so components
 // keep a single door to the data.
-export { groupsInOrder } from '@/lib/pricing';
+export { defaultSelection, groupsInOrder } from '@/lib/pricing';
 export {
   CONFIG_PARAM,
   decodeSelection,

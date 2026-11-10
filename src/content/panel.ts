@@ -8,4 +8,10 @@ export const PANEL = {
   included: 'Included',
   breakdown: 'Price breakdown',
   total: 'Total',
+  share: {
+    button: 'Share',
+    copied: 'Link copied',
+    /** The browser refused to copy (for example, a page not served over HTTPS). */
+    failed: 'Copy the address from the address bar',
+  },
 };
