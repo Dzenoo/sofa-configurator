@@ -7,10 +7,14 @@ interface Props {
   quote: Quote;
 }
 
-/** Every line of the quote, so the total is never a mystery. */
+/** Every line of the quote and the sum under them, so the total is never a mystery. */
 export const PriceBreakdown: React.FC<Props> = ({ quote }) => (
-  <section className="mt-8 border-t pt-5">
-    <h2 className="mb-3 text-sm font-medium">{PANEL.breakdown}</h2>
+  <section className="border-t py-6">
+    <div className="mb-4 flex items-baseline gap-3">
+      {/* Empty number column, so the heading lines up with the numbered ones. */}
+      <span aria-hidden className="w-5 shrink-0" />
+      <h2 className="text-base font-medium">{PANEL.breakdown}</h2>
+    </div>
     <dl className="flex flex-col gap-2 text-sm">
       {quote.lines.map((line) => (
         <div key={line.key} className="flex justify-between gap-4">
@@ -28,6 +32,12 @@ export const PriceBreakdown: React.FC<Props> = ({ quote }) => (
           </dd>
         </div>
       ))}
+      <div className="mt-2 flex justify-between gap-4 border-t pt-3 font-medium">
+        <dt>{PANEL.total}</dt>
+        <dd className="shrink-0 tabular-nums">
+          {formatMoney(quote.totalCents, quote.currency)}
+        </dd>
+      </div>
     </dl>
   </section>
 );

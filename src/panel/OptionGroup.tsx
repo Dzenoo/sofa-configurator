@@ -12,6 +12,8 @@ import { OptionTile } from './OptionTile';
 const REASON_FADE = { duration: 0.2 };
 
 interface Props {
+  /** Section number in the panel, "01", "02"… */
+  number: string;
   group: Group;
   options: Option[];
   selectedKey: string;
@@ -22,6 +24,7 @@ interface Props {
 }
 
 export const OptionGroup: React.FC<Props> = ({
+  number,
   group,
   options,
   selectedKey,
@@ -40,12 +43,21 @@ export const OptionGroup: React.FC<Props> = ({
   const reasons = [...new Set(lockedHere.map((b) => b.reason))];
 
   return (
-    <section>
-      <div className="mb-3 flex items-baseline justify-between gap-3">
-        <h2 id={labelId} className="text-sm font-medium">
+    <section className="border-t py-6 first:border-t-0">
+      <div className="mb-4 flex items-baseline gap-3">
+        {/* The number only orders the page visually; the heading carries the meaning. */}
+        <span
+          aria-hidden
+          className="w-5 shrink-0 text-xs text-muted-foreground tabular-nums"
+        >
+          {number}
+        </span>
+        <h2 id={labelId} className="text-base font-medium">
           {group.name}
         </h2>
-        <span className="text-sm text-muted-foreground">{selected?.name}</span>
+        <span className="ml-auto text-sm text-muted-foreground">
+          {selected?.name}
+        </span>
       </div>
 
       <RadioGroup

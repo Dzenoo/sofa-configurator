@@ -3,12 +3,13 @@ import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { useQuote } from './lib/useQuote';
 import { OptionGroup } from './OptionGroup';
+import { PanelHeader } from './PanelHeader';
 import { PriceBreakdown } from './PriceBreakdown';
-import { PriceTotal } from './PriceTotal';
 
 /**
- * The options and the price. The options scroll; the total stays pinned at
- * the bottom. Below the scene on a phone, a column on the right from lg up.
+ * Name and price on top, then the numbered option sections and the price
+ * breakdown, which scroll. Below the scene on a phone, a column on the right
+ * from lg up.
  */
 export const Panel: React.FC = () => {
   const catalog = useConfigurator((state) => state.catalog);
@@ -23,29 +24,24 @@ export const Panel: React.FC = () => {
       aria-labelledby="panel-title"
       className="flex min-h-0 flex-1 flex-col bg-background lg:w-100 lg:flex-none lg:border-l"
     >
-      <div className="flex-1 overflow-y-auto px-5 py-6">
-        <h1 id="panel-title" className="font-heading text-4xl">
-          {catalog.product.name}
-        </h1>
+      <PanelHeader productName={catalog.product.name} quote={quote} />
 
-        <div className="mt-6 flex flex-col gap-7">
-          {groupsInOrder(catalog).map((group) => (
-            <OptionGroup
-              key={group.key}
-              group={group}
-              options={catalog.options.filter((o) => o.groupKey === group.key)}
-              selectedKey={selection[group.key]}
-              blocked={quote?.blocked ?? []}
-              currency={catalog.currency}
-              onSelect={(optionKey) => select(group.key, optionKey)}
-            />
-          ))}
-        </div>
+      <div className="flex-1 overflow-y-auto px-6">
+        {groupsInOrder(catalog).map((group, index) => (
+          <OptionGroup
+            key={group.key}
+            number={String(index + 1).padStart(2, '0')}
+            group={group}
+            options={catalog.options.filter((o) => o.groupKey === group.key)}
+            selectedKey={selection[group.key]}
+            blocked={quote?.blocked ?? []}
+            currency={catalog.currency}
+            onSelect={(optionKey) => select(group.key, optionKey)}
+          />
+        ))}
 
         {quote && <PriceBreakdown quote={quote} />}
       </div>
-
-      {quote && <PriceTotal quote={quote} />}
     </section>
   );
 };
