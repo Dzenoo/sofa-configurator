@@ -44,6 +44,9 @@ const metaSchema = z.strictObject({
   tier: z.string().min(1).optional(),
   /** Weave texture, shared by a tier. */
   texture: z.string().min(1).optional(),
+  /** Centimeters; outer width and depth of a layout, shown next to the sofa. */
+  widthCm: z.number().int().positive().optional(),
+  depthCm: z.number().int().positive().optional(),
 });
 
 const optionSchema = z.strictObject({
@@ -91,13 +94,15 @@ export const catalogSchema = z
 
       if (
         option.groupKey === 'layout' &&
-        (!option.meta.seats || !option.meta.node)
+        (!option.meta.seats ||
+          !option.meta.node ||
+          !option.meta.widthCm ||
+          !option.meta.depthCm)
       ) {
-        issue(`layout "${option.key}" needs meta.seats and meta.node`, [
-          'options',
-          i,
-          'meta',
-        ]);
+        issue(
+          `layout "${option.key}" needs meta.seats, node, widthCm and depthCm`,
+          ['options', i, 'meta'],
+        );
       }
       if (
         option.groupKey === 'legs' &&

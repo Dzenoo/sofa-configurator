@@ -5,6 +5,7 @@ import { NeutralToneMapping } from 'three';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { Camera } from './Camera';
+import { Dimensions } from './Dimensions';
 import { toLook } from './lib/look';
 import { Lighting } from './Lighting';
 import { ResetViewButton } from './ResetViewButton';
@@ -53,6 +54,7 @@ export const Scene: React.FC = () => {
         </Suspense>
       </Canvas>
       <ResetViewButton />
+      <Dimensions />
     </>
   );
 };

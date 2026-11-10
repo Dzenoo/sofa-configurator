@@ -20,7 +20,7 @@
       "name": "2-seater",
       "priceCents": 79900,
       "pricing": "fixed",
-      "meta": { "seats": 2, "node": "layout_l2" }
+      "meta": { "seats": 2, "node": "layout_l2", "widthCm": 200, "depthCm": 95 }
     },
     {
       "key": "l3",
@@ -28,7 +28,7 @@
       "name": "3-seater",
       "priceCents": 99900,
       "pricing": "fixed",
-      "meta": { "seats": 3, "node": "layout_l3" }
+      "meta": { "seats": 3, "node": "layout_l3", "widthCm": 280, "depthCm": 95 }
     },
     {
       "key": "ll",
@@ -36,7 +36,12 @@
       "name": "Corner, left",
       "priceCents": 149900,
       "pricing": "fixed",
-      "meta": { "seats": 4, "node": "layout_ll" }
+      "meta": {
+        "seats": 4,
+        "node": "layout_ll",
+        "widthCm": 275,
+        "depthCm": 195
+      }
     },
     {
       "key": "lr",
@@ -44,7 +49,12 @@
       "name": "Corner, right",
       "priceCents": 149900,
       "pricing": "fixed",
-      "meta": { "seats": 4, "node": "layout_lr" }
+      "meta": {
+        "seats": 4,
+        "node": "layout_lr",
+        "widthCm": 275,
+        "depthCm": 195
+      }
     },
 
     {
