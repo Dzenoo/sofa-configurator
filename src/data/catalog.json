@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "currency": "EUR",
+  "product": {
+    "slug": "modular-sofa",
+    "name": "Modular Sofa",
+    "basePriceCents": 0
+  },
+  "groups": [
+    { "key": "layout", "name": "Layout", "order": 1, "defaultKey": "l3" },
+    { "key": "fabric", "name": "Fabric", "order": 2, "defaultKey": "fb1" },
+    { "key": "legs", "name": "Legs", "order": 3, "defaultKey": "lo" },
+    { "key": "cushions", "name": "Cushions", "order": 4, "defaultKey": "cs" },
+    { "key": "ottoman", "name": "Ottoman", "order": 5, "defaultKey": "t0" }
+  ],
+  "options": [
+    {
+      "key": "l2",
+      "groupKey": "layout",
+      "name": "2-seater",
+      "priceCents": 79900,
+      "pricing": "fixed",
+      "meta": { "seats": 2, "node": "layout_l2" }
+    },
+    {
+      "key": "l3",
+      "groupKey": "layout",
+      "name": "3-seater",
+      "priceCents": 99900,
+      "pricing": "fixed",
+      "meta": { "seats": 3, "node": "layout_l3" }
+    },
+    {
+      "key": "ll",
+      "groupKey": "layout",
+      "name": "Corner, left",
+      "priceCents": 149900,
+      "pricing": "fixed",
+      "meta": { "seats": 4, "node": "layout_ll" }
+    },
+    {
+      "key": "lr",
+      "groupKey": "layout",
+      "name": "Corner, right",
+      "priceCents": 149900,
+      "pricing": "fixed",
+      "meta": { "seats": 4, "node": "layout_lr" }
+    },
+
+    {
+      "key": "fa1",
+      "groupKey": "fabric",
+      "name": "Linen Light",
+      "priceCents": 0,
+      "pricing": "perSeat",
+      "meta": { "tier": "A", "texture": "linen", "color": "#d9d3c9" }
+    },
+    {
+      "key": "fa2",
+      "groupKey": "fabric",
+      "name": "Cotton Sand",
+      "priceCents": 0,
+      "pricing": "perSeat",
+      "meta": { "tier": "A", "texture": "linen", "color": "#c8b8a0" }
+    },
+    {
+      "key": "fb1",
+      "groupKey": "fabric",
+      "name": "Bouclé Cream",
+      "priceCents": 6000,
+      "pricing": "perSeat",
+      "meta": { "tier": "B", "texture": "boucle", "color": "#e6e0d4" }
+    },
+    {
+      "key": "fb2",
+      "groupKey": "fabric",
+      "name": "Bouclé Moss",
+      "priceCents": 6000,
+      "pricing": "perSeat",
+      "meta": { "tier": "B", "texture": "boucle", "color": "#7d8466" }
+    },
+    {
+      "key": "fc1",
+      "groupKey": "fabric",
+      "name": "Velvet Navy",
+      "priceCents": 14000,
+      "pricing": "perSeat",
+      "meta": { "tier": "C", "texture": "velvet", "color": "#2f3a56" }
+    },
+    {
+      "key": "fc2",
+      "groupKey": "fabric",
+      "name": "Velvet Rust",
+      "priceCents": 14000,
+      "pricing": "perSeat",
+      "meta": { "tier": "C", "texture": "velvet", "color": "#9a4a2e" }
+    },
+
+    {
+      "key": "lo",
+      "groupKey": "legs",
+      "name": "Oak",
+      "priceCents": 0,
+      "pricing": "fixed",
+      "meta": { "node": "legs_wood", "color": "#b8895a" }
+    },
+    {
+      "key": "lw",
+      "groupKey": "legs",
+      "name": "Walnut",
+      "priceCents": 9000,
+      "pricing": "fixed",
+      "meta": { "node": "legs_wood", "color": "#5c3b24" }
+    },
+    {
+      "key": "lm",
+      "groupKey": "legs",
+      "name": "Black metal",
+      "priceCents": 6000,
+      "pricing": "fixed",
+      "meta": { "node": "legs_metal", "color": "#1c1c1c" }
+    },
+
+    {
+      "key": "cs",
+      "groupKey": "cushions",
+      "name": "Standard",
+      "priceCents": 0,
+      "pricing": "perSeat",
+      "meta": {}
+    },
+    {
+      "key": "cm",
+      "groupKey": "cushions",
+      "name": "Soft",
+      "priceCents": 4500,
+      "pricing": "perSeat",
+      "meta": {}
+    },
+
+    {
+      "key": "t0",
+      "groupKey": "ottoman",
+      "name": "No ottoman",
+      "priceCents": 0,
+      "pricing": "fixed",
+      "meta": {}
+    },
+    {
+      "key": "t1",
+      "groupKey": "ottoman",
+      "name": "Ottoman",
+      "priceCents": 29000,
+      "pricing": "fixed",
+      "meta": { "seats": 1, "node": "ottoman" }
+    }
+  ],
+  "rules": [
+    {
+      "optionKey": "fa1",
+      "excludesKey": "cm",
+      "reason": "Soft cushions need a heavier fabric than Linen Light."
+    }
+  ]
+}
