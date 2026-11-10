@@ -100,6 +100,16 @@ export const catalogSchema = z
         ]);
       }
       if (
+        option.groupKey === 'legs' &&
+        (!option.meta.node || !option.meta.color)
+      ) {
+        issue(`legs "${option.key}" need meta.node and meta.color`, [
+          'options',
+          i,
+          'meta',
+        ]);
+      }
+      if (
         option.groupKey === 'fabric' &&
         (!option.meta.color || !option.meta.tier)
       ) {
