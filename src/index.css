@@ -2,6 +2,8 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/inter';
+/* Headings only, and the font has a single weight (400): headings stay 400. */
+@import '@fontsource/instrument-serif';
 
 /* The page has one light theme: "dark:" styles in shadcn components only
    apply under a .dark class, never because of the system setting. */
@@ -9,13 +11,16 @@
 
 /* shadcn/ui theme tokens, base color stone. */
 :root {
+  /* Behind the 3D sofa: a warm off-white, also shown while the scene loads. */
+  --scene: #efebe6;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.147 0.004 49.25);
-  --primary: oklch(0.216 0.006 56.043);
+  /* The one warm accent (terracotta): what is selected or focused right now. */
+  --primary: oklch(0.56 0.13 40);
   --primary-foreground: oklch(0.985 0.001 106.423);
   --secondary: oklch(0.97 0.001 106.424);
   --secondary-foreground: oklch(0.216 0.006 56.043);
@@ -26,13 +31,14 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.923 0.003 48.717);
   --input: oklch(0.923 0.003 48.717);
-  --ring: oklch(0.709 0.01 56.259);
+  --ring: oklch(0.56 0.13 40);
   --radius: 0.625rem;
 }
 
 @theme inline {
-  --font-heading: var(--font-sans);
+  --font-heading: 'Instrument Serif', serif;
   --font-sans: 'Inter Variable', sans-serif;
+  --color-scene: var(--scene);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -66,25 +72,21 @@
   }
   html {
     @apply font-sans;
+    /* Only weights that are actually loaded: never a faked bold or italic. */
+    font-synthesis: none;
   }
   body {
     @apply bg-background text-foreground;
   }
+  /* The app fills the window through plain percentages: they follow every
+     resize, where viewport units can keep a stale height for a moment. */
   html,
   body,
   #root {
-    height: 100lvh;
+    height: 100%;
   }
 }
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }

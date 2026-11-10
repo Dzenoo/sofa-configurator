@@ -8,8 +8,6 @@ import { toLook } from './lib/look';
 import { Sofa } from './Sofa';
 
 const SCENE = {
-  /** Warm off-white behind the sofa (sRGB). */
-  background: '#efebe6',
   /** Pixel ratio range: sharp on retina screens, capped so phones don't render 3× the pixels. */
   dpr: [1, 2] as [number, number],
   camera: {
@@ -45,8 +43,9 @@ export const Scene: React.FC = () => {
   return (
     // Drawing only on demand: a still sofa costs nothing, and the controls
     // and the sofa ask for a new frame when something actually changes.
+    // The canvas is transparent: the page's --scene color shows through, so
+    // the color is defined once and the area looks the same before 3D loads.
     <Canvas frameloop="demand" dpr={SCENE.dpr} camera={SCENE.camera}>
-      <color attach="background" args={[SCENE.background]} />
       <hemisphereLight
         args={[
           LIGHT.hemisphere.sky,

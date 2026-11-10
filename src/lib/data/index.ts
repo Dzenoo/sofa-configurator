@@ -24,6 +24,9 @@ export async function quote(selection: Selection): Promise<Quote> {
   return price(await getCatalog(), selection);
 }
 
+// Pure helpers the UI needs to read a catalog, passed through so components
+// keep a single door to the data.
+export { groupsInOrder } from '@/lib/pricing';
 export {
   CONFIG_PARAM,
   decodeSelection,
