@@ -5,8 +5,11 @@ import { useId } from 'react';
 
 import type { BlockedOption, OptionGroup as Group, Option } from '@/lib/data';
 
+import { LayoutOption } from './LayoutOption';
 import { priceHint } from './lib/money';
+import { silhouetteOf } from './lib/silhouettes';
 import { OptionTile } from './OptionTile';
+import { SwatchOption } from './SwatchOption';
 
 /** Seconds; the lock reason fades in and out instead of popping. */
 const REASON_FADE = { duration: 0.2 };
@@ -41,6 +44,7 @@ export const OptionGroup: React.FC<Props> = ({
     options.some((o) => o.key === b.optionKey),
   );
   const reasons = [...new Set(lockedHere.map((b) => b.reason))];
+  const swatches = options.every((o) => o.meta.color);
 
   return (
     <section className="border-t py-6 first:border-t-0">
@@ -64,21 +68,42 @@ export const OptionGroup: React.FC<Props> = ({
         aria-labelledby={labelId}
         value={selectedKey}
         onValueChange={(value) => onSelect(value as string)}
-        // Two columns everywhere: wide enough that names like "Bouclé Cream"
-        // stay on one line, on a phone and in the desktop column alike.
-        className="grid grid-cols-2 gap-2"
+        // Swatches are narrow, so three fit in a row with their names on one
+        // line; tiles and outlines need the width of two columns.
+        className={
+          swatches ? 'grid grid-cols-3 gap-2' : 'grid grid-cols-2 gap-2'
+        }
       >
         {options.map((option) => {
           const locked = lockedHere.some((b) => b.optionKey === option.key);
-          return (
-            <OptionTile
-              key={option.key}
-              option={option}
-              hint={priceHint(option, options, currency)}
-              blocked={locked}
-              describedBy={locked ? reasonId : undefined}
-            />
-          );
+          const props = {
+            option,
+            hint: priceHint(option, options, currency),
+            blocked: locked,
+            describedBy: locked ? reasonId : undefined,
+          };
+          // What an option looks like follows from its data, not its group:
+          // an outline if the layout has one, a swatch if it has a color.
+          const silhouette = silhouetteOf(option.meta.node);
+          if (option.groupKey === 'layout' && silhouette) {
+            return (
+              <LayoutOption
+                key={option.key}
+                {...props}
+                silhouette={silhouette}
+              />
+            );
+          }
+          if (swatches && option.meta.color) {
+            return (
+              <SwatchOption
+                key={option.key}
+                {...props}
+                color={option.meta.color}
+              />
+            );
+          }
+          return <OptionTile key={option.key} {...props} />;
         })}
       </RadioGroup>
 
