@@ -1,4 +1,4 @@
-import { Bounds, OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { MathUtils } from 'three';
 
 import { FitToLayout } from './FitToLayout';
@@ -18,8 +18,8 @@ const VIEW = {
   minPolarAngle: MathUtils.degToRad(15),
   /** Radians from straight above: down to 8° over the floor, never under the sofa. */
   maxPolarAngle: MathUtils.degToRad(90 - 8),
-  /** Seconds a framing move takes; drei eases it out, so most of it is a soft settle. */
-  duration: 2,
+  /** Speed of a framing move, per second: most of the way in about a second, then a soft settle. */
+  damping: 2.5,
 };
 
 interface Props {
@@ -38,14 +38,14 @@ export const Camera: React.FC<Props> = ({ layout }) => (
       minPolarAngle={VIEW.minPolarAngle}
       maxPolarAngle={VIEW.maxPolarAngle}
     />
-    <Bounds margin={VIEW.margin} maxDuration={VIEW.duration}>
-      <FitToLayout
-        layout={layout}
-        azimuth={VIEW.azimuth}
-        elevation={VIEW.elevation}
-        zoomMin={VIEW.zoomMin}
-        zoomMax={VIEW.zoomMax}
-      />
-    </Bounds>
+    <FitToLayout
+      layout={layout}
+      azimuth={VIEW.azimuth}
+      elevation={VIEW.elevation}
+      margin={VIEW.margin}
+      zoomMin={VIEW.zoomMin}
+      zoomMax={VIEW.zoomMax}
+      damping={VIEW.damping}
+    />
   </>
 );
