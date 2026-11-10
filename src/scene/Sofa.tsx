@@ -3,6 +3,7 @@ import { useThree } from '@react-three/fiber';
 import { useLayoutEffect, useMemo } from 'react';
 import { NoColorSpace } from 'three';
 
+import { Assemble } from './Assemble';
 import type { SofaLook } from './lib/look';
 import { findSofaParts } from './lib/parts';
 
@@ -55,7 +56,14 @@ export const Sofa: React.FC<Props> = ({ look }) => {
     invalidate();
   }, [look, parts, invalidate]);
 
-  return <primitive object={scene} />;
+  const layout = parts.layouts.get(look.layout);
+
+  return (
+    <>
+      <primitive object={scene} />
+      {layout && <Assemble layout={layout} />}
+    </>
+  );
 };
 
 useGLTF.preload(MODEL.url, false, true);
