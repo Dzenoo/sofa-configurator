@@ -8,6 +8,8 @@ import { Camera } from './Camera';
 import { Dimensions } from './Dimensions';
 import { toLook } from './lib/look';
 import { Lighting } from './Lighting';
+import { ReportProgress } from './ReportProgress';
+import { ReportReady } from './ReportReady';
 import { ResetViewButton } from './ResetViewButton';
 import { Sofa } from './Sofa';
 
@@ -51,8 +53,10 @@ export const Scene: React.FC = () => {
           <Lighting />
           <Sofa look={look} />
           <Camera layout={look.layout} />
+          <ReportReady />
         </Suspense>
       </Canvas>
+      <ReportProgress />
       <ResetViewButton />
       <Dimensions />
     </>
