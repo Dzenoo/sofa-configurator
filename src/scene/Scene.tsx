@@ -1,10 +1,12 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useMemo } from 'react';
+import { NeutralToneMapping } from 'three';
 
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { toLook } from './lib/look';
+import { Lighting } from './Lighting';
 import { Sofa } from './Sofa';
 
 const SCENE = {
@@ -21,15 +23,11 @@ const SCENE = {
 };
 
 /*
- * Placeholder light so the model can be checked now. The real setup (interior
- * HDRI, contact shadow) is its own step and replaces this one.
+ * Neutral tone mapping (Khronos PBR Neutral) instead of R3F's default ACES:
+ * it keeps the catalog colors true (ACES shifts hues and darkens saturated
+ * fabrics), which matters when the color on screen is what someone buys.
  */
-const LIGHT = {
-  /** Sky and ground colors and intensity of the soft fill light. */
-  hemisphere: { sky: '#ffffff', ground: '#b9b0a4', intensity: 1.2 },
-  /** Key light from the front left, above; meters and intensity. */
-  key: { position: [-2, 4, 3] as const, intensity: 2 },
-};
+const GL = { toneMapping: NeutralToneMapping };
 
 export const Scene: React.FC = () => {
   const catalog = useConfigurator((state) => state.catalog);
@@ -45,20 +43,10 @@ export const Scene: React.FC = () => {
     // and the sofa ask for a new frame when something actually changes.
     // The canvas is transparent: the page's --scene color shows through, so
     // the color is defined once and the area looks the same before 3D loads.
-    <Canvas frameloop="demand" dpr={SCENE.dpr} camera={SCENE.camera}>
-      <hemisphereLight
-        args={[
-          LIGHT.hemisphere.sky,
-          LIGHT.hemisphere.ground,
-          LIGHT.hemisphere.intensity,
-        ]}
-      />
-      <directionalLight
-        position={LIGHT.key.position}
-        intensity={LIGHT.key.intensity}
-      />
-
+    <Canvas frameloop="demand" dpr={SCENE.dpr} camera={SCENE.camera} gl={GL}>
+      {/* Light and sofa wait for each other, so the sofa never shows unlit. */}
       <Suspense fallback={null}>
+        <Lighting />
         <Sofa look={look} />
       </Suspense>
       <OrbitControls makeDefault target={SCENE.target} />
