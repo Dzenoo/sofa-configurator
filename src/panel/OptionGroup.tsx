@@ -80,6 +80,8 @@ export const OptionGroup: React.FC<Props> = ({
             option,
             hint: priceHint(option, options, currency),
             blocked: locked,
+            selected: option.key === selectedKey,
+            markId: `${id}-mark`,
             describedBy: locked ? reasonId : undefined,
           };
           // What an option looks like follows from its data, not its group:

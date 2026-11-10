@@ -2,6 +2,7 @@ import { Radio } from '@base-ui/react/radio';
 
 import { SILHOUETTE_BOX, type SilhouettePart } from './lib/silhouettes';
 import type { OptionProps } from './OptionTile';
+import { SelectionMark } from './SelectionMark';
 
 /** Centimeters; the gap left between two parts and the rounding of their corners. */
 const DRAWING = { gap: 3, radius: 5 };
@@ -15,6 +16,8 @@ export const LayoutOption: React.FC<Props> = ({
   option,
   hint,
   blocked,
+  selected,
+  markId,
   describedBy,
   silhouette,
 }) => (
@@ -24,12 +27,15 @@ export const LayoutOption: React.FC<Props> = ({
     nativeButton
     render={<button type="button" />}
     aria-describedby={describedBy}
-    className="group flex flex-col rounded-lg border bg-background p-3 text-left text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-checked:border-primary data-checked:ring-1 data-checked:ring-primary data-disabled:cursor-not-allowed data-disabled:opacity-50"
+    className="group relative flex flex-col rounded-lg border bg-background p-3 text-left text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-disabled:cursor-not-allowed data-disabled:opacity-50"
   >
+    {selected && (
+      <SelectionMark id={markId} className="-inset-px rounded-lg border-2" />
+    )}
     <svg
       aria-hidden
       viewBox={`0 0 ${SILHOUETTE_BOX.width} ${SILHOUETTE_BOX.height}`}
-      className="mb-3 w-full text-muted-foreground transition-colors group-data-checked:text-primary"
+      className="mb-3 w-full text-muted-foreground transition-colors duration-300 group-data-checked:text-primary"
     >
       {silhouette.map((part, i) => (
         <rect

@@ -1,3 +1,5 @@
+import { motion } from 'motion/react';
+
 import { groupsInOrder } from '@/lib/data';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
@@ -26,7 +28,9 @@ export const Panel: React.FC = () => {
     >
       <PanelHeader productName={catalog.product.name} quote={quote} />
 
-      <div className="flex-1 overflow-y-auto px-6">
+      {/* layoutScroll: the selection marks slide inside this scrolling area,
+          so Motion has to count its scroll position when it measures them. */}
+      <motion.div layoutScroll className="flex-1 overflow-y-auto px-6">
         {groupsInOrder(catalog).map((group, index) => (
           <OptionGroup
             key={group.key}
@@ -41,7 +45,7 @@ export const Panel: React.FC = () => {
         ))}
 
         {quote && <PriceBreakdown quote={quote} />}
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -3,12 +3,17 @@ import { Lock } from 'lucide-react';
 
 import type { Option } from '@/lib/data';
 
+import { SelectionMark } from './SelectionMark';
+
 /** What every kind of option (text tile, swatch, layout outline) is given. */
 export interface OptionProps {
   option: Option;
   /** Price text under the name, or empty. */
   hint: string;
   blocked: boolean;
+  selected: boolean;
+  /** Id of the group's selection mark, the same for all its options. */
+  markId: string;
   /** Id of the text that explains why the option is locked. */
   describedBy: string | undefined;
 }
@@ -22,6 +27,8 @@ export const OptionTile: React.FC<OptionProps> = ({
   option,
   hint,
   blocked,
+  selected,
+  markId,
   describedBy,
 }) => (
   <Radio.Root
@@ -30,8 +37,11 @@ export const OptionTile: React.FC<OptionProps> = ({
     nativeButton
     render={<button type="button" />}
     aria-describedby={describedBy}
-    className="flex min-h-14 flex-col items-start justify-center gap-1 rounded-lg border bg-background px-3 py-2.5 text-left text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-checked:border-primary data-checked:ring-1 data-checked:ring-primary data-disabled:cursor-not-allowed data-disabled:opacity-50 data-disabled:hover:bg-background"
+    className="relative flex min-h-14 flex-col items-start justify-center gap-1 rounded-lg border bg-background px-3 py-2.5 text-left text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-disabled:cursor-not-allowed data-disabled:opacity-50 data-disabled:hover:bg-background"
   >
+    {selected && (
+      <SelectionMark id={markId} className="-inset-px rounded-lg border-2" />
+    )}
     <span className="flex items-center gap-2">
       <span className="font-medium">{option.name}</span>
       {blocked && (

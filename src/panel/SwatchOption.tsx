@@ -2,6 +2,7 @@ import { Radio } from '@base-ui/react/radio';
 import { Lock } from 'lucide-react';
 
 import type { OptionProps } from './OptionTile';
+import { SelectionMark } from './SelectionMark';
 
 interface Props extends OptionProps {
   color: string;
@@ -15,6 +16,8 @@ export const SwatchOption: React.FC<Props> = ({
   option,
   hint,
   blocked,
+  selected,
+  markId,
   describedBy,
   color,
 }) => (
@@ -26,11 +29,16 @@ export const SwatchOption: React.FC<Props> = ({
     aria-describedby={describedBy}
     className="group flex flex-col items-center gap-0.5 rounded-lg py-1 text-center text-xs whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-disabled:cursor-not-allowed"
   >
-    <span
-      aria-hidden
-      className="mb-1.5 size-12 rounded-full border border-black/10 ring-offset-2 ring-offset-background transition-shadow group-hover:ring-2 group-hover:ring-border group-data-checked:ring-2 group-data-checked:ring-primary group-data-disabled:opacity-40 group-data-disabled:group-hover:ring-0"
-      style={{ backgroundColor: color }}
-    />
+    <span aria-hidden className="relative mb-1.5 size-12">
+      <span
+        className="block size-full rounded-full border border-black/10 ring-offset-2 ring-offset-background transition-shadow group-hover:ring-2 group-hover:ring-border group-data-disabled:opacity-40 group-data-disabled:group-hover:ring-0"
+        style={{ backgroundColor: color }}
+      />
+      {/* Sits where the hover ring is: 2px off the swatch, 2px wide. */}
+      {selected && (
+        <SelectionMark id={markId} className="-inset-1 rounded-full border-2" />
+      )}
+    </span>
     <span className="flex items-center gap-1 font-medium group-data-disabled:text-muted-foreground">
       {option.name}
       {blocked && <Lock aria-hidden className="size-3 shrink-0" />}
