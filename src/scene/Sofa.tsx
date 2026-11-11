@@ -6,6 +6,7 @@ import { NoColorSpace } from 'three';
 import { Assemble } from './Assemble';
 import { FadeColor } from './FadeColor';
 import type { SofaLook } from './lib/look';
+import { LegFinish } from './LegFinish';
 import { findSofaParts } from './lib/parts';
 import { Weave } from './Weave';
 
@@ -65,6 +66,7 @@ export const Sofa: React.FC<Props> = ({ look }) => {
       <FadeColor material={parts.fabric} color={look.fabricColor} />
       {legs && <FadeColor material={legs.material} color={look.legsColor} />}
       <Weave material={parts.fabric} weave={look.weave} />
+      <LegFinish wood={parts.wood} metal={parts.metal} />
       {layout && <Assemble layout={layout} />}
     </>
   );
