@@ -1,13 +1,6 @@
-import { ContactShadows, Environment } from '@react-three/drei';
+import { ContactShadows } from '@react-three/drei';
 
-const ENVIRONMENT = {
-  /** Interior HDRI (ambientCG, CC0): 1K, RGB half float, DWAA. Light and reflections only, never shown. */
-  url: '/environment/indoor.exr',
-  /** Strength of the room light. */
-  intensity: 1.8,
-  /** Radians; the room turned a quarter around the sofa so the window light falls from the side. */
-  rotation: [5, Math.PI / 2, 0] as [number, number, number],
-};
+import { Studio } from './Studio';
 
 const SHADOW = {
   /**
@@ -31,25 +24,19 @@ const SHADOW = {
 };
 
 /**
- * All the light in the scene: the room (HDRI) and one soft shadow on the
- * floor. No lights with shadow maps: cheap, and it reads as a real room.
+ * All the light in the scene: the studio and one soft shadow on the floor.
+ * No lights with shadow maps: cheap, and the sofa still stands on something.
  */
-export const Lighting: React.FC = () => {
-  return (
-    <>
-      <Environment
-        files={ENVIRONMENT.url}
-        environmentIntensity={ENVIRONMENT.intensity}
-        environmentRotation={ENVIRONMENT.rotation}
-      />
-      <ContactShadows
-        position={SHADOW.position}
-        scale={SHADOW.scale}
-        resolution={SHADOW.resolution}
-        opacity={SHADOW.opacity}
-        blur={SHADOW.blur}
-        far={SHADOW.far}
-      />
-    </>
-  );
-};
+export const Lighting: React.FC = () => (
+  <>
+    <Studio />
+    <ContactShadows
+      position={SHADOW.position}
+      scale={SHADOW.scale}
+      resolution={SHADOW.resolution}
+      opacity={SHADOW.opacity}
+      blur={SHADOW.blur}
+      far={SHADOW.far}
+    />
+  </>
+);
