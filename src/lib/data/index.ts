@@ -29,7 +29,6 @@ export async function quote(selection: Selection): Promise<Quote> {
 export { defaultSelection, groupsInOrder } from '@/lib/pricing';
 export {
   CONFIG_PARAM,
-  decodeSelection,
   encodeSelection,
   selectionFromSearch,
   shareUrl,

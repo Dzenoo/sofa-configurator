@@ -111,13 +111,11 @@ export const Assemble: React.FC<Props> = ({ layout }) => {
         piece.node.scale.copy(piece.scale);
       }
     };
-    // play and pose only read refs.
   }, [layout]);
 
   // The first assembly starts when the loading screen begins to leave.
   useEffect(() => {
     if (done) play();
-    // play only reads refs.
   }, [done]);
 
   useFrame((_, delta) => {
