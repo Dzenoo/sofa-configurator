@@ -4,6 +4,7 @@ import { useLayoutEffect, useMemo } from 'react';
 import { NoColorSpace } from 'three';
 
 import { Assemble } from './Assemble';
+import { FadeColor } from './FadeColor';
 import type { SofaLook } from './lib/look';
 import { findSofaParts } from './lib/parts';
 import { Weave } from './Weave';
@@ -49,19 +50,20 @@ export const Sofa: React.FC<Props> = ({ look }) => {
     for (const ottoman of parts.ottomans) ottoman.visible = look.ottoman;
     for (const leg of parts.legs) leg.visible = leg.name.startsWith(look.legs);
 
-    parts.fabric.color.set(look.fabricColor);
-    // Oak and walnut share the wood material, so the color comes from the selection.
-    parts.legs.find((leg) => leg.visible)?.material.color.set(look.legsColor);
-
     // The canvas only draws on demand: a changed selection is a reason to.
     invalidate();
   }, [look, parts, invalidate]);
 
   const layout = parts.layouts.get(look.layout);
+  // Oak and walnut share the wood material, so the color comes from the
+  // selection; every leg of one kind has the same material.
+  const legs = parts.legs.find((leg) => leg.name.startsWith(look.legs));
 
   return (
     <>
       <primitive object={scene} />
+      <FadeColor material={parts.fabric} color={look.fabricColor} />
+      {legs && <FadeColor material={legs.material} color={look.legsColor} />}
       <Weave material={parts.fabric} weave={look.weave} />
       {layout && <Assemble layout={layout} />}
     </>
