@@ -11,8 +11,10 @@
 
 /* shadcn/ui theme tokens, base color stone. */
 :root {
-  /* Behind the 3D sofa: a warm off-white, also shown while the scene loads. */
-  --scene: #efebe6;
+  /* The studio backdrop behind the 3D sofa: a pool of light (center) that
+     falls off toward the edges. See the bg-studio utility below. */
+  --studio-center: #faf8f5;
+  --studio-edge: #e6dfd7;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
@@ -38,7 +40,6 @@
 @theme inline {
   --font-heading: 'Instrument Serif', serif;
   --font-sans: 'Inter Variable', sans-serif;
-  --color-scene: var(--scene);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -89,4 +90,17 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* Like a lit paper sweep in a photo studio. Plain CSS under the transparent
+   canvas, so it costs the GPU nothing; the loading screen uses it too, so
+   the tone doesn't change when it fades into the scene. The pool is centered
+   a little below the middle, where the sofa stands, and reaches the edge
+   color at 75% of the area. */
+@utility bg-studio {
+  background: radial-gradient(
+    ellipse at 50% 55%,
+    var(--studio-center),
+    var(--studio-edge) 75%
+  );
 }

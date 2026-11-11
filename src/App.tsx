@@ -33,7 +33,7 @@ const App: React.FC = () => {
       {/* inert while the loading screen covers it: nothing underneath can
           be clicked or reached with Tab. */}
       <main inert={!loaded} className="flex h-full flex-col lg:flex-row">
-        <div className="relative h-[55%] shrink-0 bg-scene lg:h-auto lg:flex-1">
+        <div className="relative h-[55%] shrink-0 bg-studio lg:h-auto lg:flex-1">
           <Suspense fallback={null}>
             <Scene />
           </Suspense>

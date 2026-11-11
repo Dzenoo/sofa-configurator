@@ -62,7 +62,7 @@ export const Loader: React.FC = () => {
           role="status"
           exit={{ opacity: 0 }}
           transition={LEAVE}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-scene"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-studio"
         >
           <span className="sr-only">{LOADER.status}</span>
           <span

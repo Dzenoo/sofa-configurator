@@ -44,8 +44,8 @@ export const Scene: React.FC = () => {
     <>
       {/* Drawing only on demand: a still sofa costs nothing, and the controls
           and the sofa ask for a new frame when something actually changes.
-          The canvas is transparent: the page's --scene color shows through, so
-          the color is defined once and the area looks the same before 3D loads. */}
+          The canvas is transparent: the studio backdrop behind it is plain CSS
+          (bg-studio), there even before the 3D code arrives. */}
       <Canvas frameloop="demand" dpr={SCENE.dpr} camera={SCENE.camera} gl={GL}>
         {/* Light, sofa and camera wait for each other: the sofa never shows
             unlit, and the camera frames it only once it exists. */}
