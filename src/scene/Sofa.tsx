@@ -6,6 +6,7 @@ import { NoColorSpace } from 'three';
 import { Assemble } from './Assemble';
 import type { SofaLook } from './lib/look';
 import { findSofaParts } from './lib/parts';
+import { Weave } from './Weave';
 
 const MODEL = {
   url: '/models/sofa/sofa.glb',
@@ -61,6 +62,7 @@ export const Sofa: React.FC<Props> = ({ look }) => {
   return (
     <>
       <primitive object={scene} />
+      <Weave material={parts.fabric} weave={look.weave} />
       {layout && <Assemble layout={layout} />}
     </>
   );

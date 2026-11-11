@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+/** The fabric weaves the 3D scene has textures for (public/textures/<weave>/). */
+export const WEAVES = ['linen', 'boucle', 'velvet'] as const;
+
 /** The option groups the panel and the 3D scene know about, in no particular order (see `order`). */
 export const GROUP_KEYS = [
   'layout',
@@ -43,7 +46,7 @@ const metaSchema = z.strictObject({
   /** Fabric quality group, shown in the price lines. */
   tier: z.string().min(1).optional(),
   /** Weave texture, shared by a tier. */
-  texture: z.string().min(1).optional(),
+  texture: z.enum(WEAVES).optional(),
   /** Centimeters; outer width and depth of a layout, shown next to the sofa. */
   widthCm: z.number().int().positive().optional(),
   depthCm: z.number().int().positive().optional(),
@@ -116,9 +119,9 @@ export const catalogSchema = z
       }
       if (
         option.groupKey === 'fabric' &&
-        (!option.meta.color || !option.meta.tier)
+        (!option.meta.color || !option.meta.tier || !option.meta.texture)
       ) {
-        issue(`fabric "${option.key}" needs meta.color and meta.tier`, [
+        issue(`fabric "${option.key}" needs meta.color, tier and texture`, [
           'options',
           i,
           'meta',

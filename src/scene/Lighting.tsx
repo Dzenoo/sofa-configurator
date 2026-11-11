@@ -4,9 +4,9 @@ const ENVIRONMENT = {
   /** Interior HDRI (ambientCG, CC0): 1K, RGB half float, DWAA. Light and reflections only, never shown. */
   url: '/environment/indoor.exr',
   /** Strength of the room light. */
-  intensity: 1.2,
+  intensity: 1.8,
   /** Radians; the room turned a quarter around the sofa so the window light falls from the side. */
-  rotation: [0, Math.PI / 2, 0] as [number, number, number],
+  rotation: [5, Math.PI / 2, 0] as [number, number, number],
 };
 
 const SHADOW = {

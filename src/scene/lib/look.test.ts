@@ -23,6 +23,7 @@ describe('toLook()', () => {
       legs: 'legs_metal',
       legsColor: '#1c1c1c',
       fabricColor: '#2f3a56',
+      weave: 'velvet',
       ottoman: true,
     });
   });

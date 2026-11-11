@@ -1,6 +1,6 @@
 import type { z } from 'zod';
 
-import type { GROUP_KEYS, catalogSchema } from './schema';
+import type { GROUP_KEYS, WEAVES, catalogSchema } from './schema';
 
 /*
  * Types are written once, as the Zod schema in ./schema.ts, and inferred here,
@@ -16,6 +16,7 @@ export type Option = Catalog['options'][number];
 export type Rule = Catalog['rules'][number];
 
 export type GroupKey = (typeof GROUP_KEYS)[number];
+export type Weave = (typeof WEAVES)[number];
 
 /** One option key per group: exactly what goes into the share link. */
 export type Selection = Readonly<Record<GroupKey, string>>;

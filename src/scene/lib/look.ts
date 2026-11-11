@@ -1,4 +1,4 @@
-import type { Catalog, Selection } from '@/lib/data';
+import type { Catalog, Selection, Weave } from '@/lib/data';
 
 /**
  * Everything the 3D sofa needs to draw a selection, and nothing about prices:
@@ -11,6 +11,8 @@ export interface SofaLook {
   legs: string;
   legsColor: string;
   fabricColor: string;
+  /** Which weave texture the fabric uses. */
+  weave: Weave;
   ottoman: boolean;
 }
 
@@ -29,6 +31,7 @@ export function toLook(catalog: Catalog, selection: Selection): SofaLook {
     legs: need(legs.node, 'legs node'),
     legsColor: need(legs.color, 'legs color'),
     fabricColor: need(fabric.color, 'fabric color'),
+    weave: need(fabric.texture, 'fabric weave'),
     // The ottoman option that shows one is the one pointing at a model node.
     ottoman: meta(selection.ottoman).node !== undefined,
   };
