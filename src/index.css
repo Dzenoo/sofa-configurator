@@ -14,7 +14,7 @@
   /* The studio backdrop behind the 3D sofa: a pool of light (center) that
      falls off toward the edges. See the bg-studio utility below. */
   --studio-center: #faf8f5;
-  --studio-edge: #e6dfd7;
+  --studio-edge: #fce1c3;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
