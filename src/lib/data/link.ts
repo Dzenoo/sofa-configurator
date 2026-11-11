@@ -5,7 +5,7 @@ import type { Catalog, GroupKey, Selection } from './types';
 /** The query parameter that carries a configuration: `/?config=l3.fb2.lo.cs.t1`. */
 export const CONFIG_PARAM = 'config';
 
-/** Option keys in panel order, joined with dots. */
+/** Option keys in dock order, joined with dots. */
 export function encodeSelection(
   catalog: Catalog,
   selection: Selection,

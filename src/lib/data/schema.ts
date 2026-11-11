@@ -3,7 +3,7 @@ import { z } from 'zod';
 /** The fabric weaves the 3D scene has textures for (public/textures/<weave>/). */
 export const WEAVES = ['linen', 'boucle', 'velvet'] as const;
 
-/** The option groups the panel and the 3D scene know about, in no particular order (see `order`). */
+/** The option groups the dock and the 3D scene know about, in no particular order (see `order`). */
 export const GROUP_KEYS = [
   'layout',
   'fabric',

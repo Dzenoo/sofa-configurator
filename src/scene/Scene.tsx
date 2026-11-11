@@ -4,14 +4,12 @@ import { NeutralToneMapping } from 'three';
 
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
-import { Camera } from './Camera';
-import { Dimensions } from './Dimensions';
-import { toLook } from './lib/look';
-import { Lighting } from './Lighting';
-import { ReportProgress } from './ReportProgress';
-import { ReportReady } from './ReportReady';
-import { ResetViewButton } from './ResetViewButton';
-import { Sofa } from './Sofa';
+import { Camera } from './camera/Camera';
+import { toLook } from './sofa/utils/look';
+import { Lighting } from './light/Lighting';
+import { ReportProgress } from './loading/ReportProgress';
+import { ReportReady } from './loading/ReportReady';
+import { Sofa } from './sofa/Sofa';
 
 const SCENE = {
   /** Pixel ratio range: sharp on retina screens, capped so phones don't render 3× the pixels. */
@@ -57,8 +55,6 @@ export const Scene: React.FC = () => {
         </Suspense>
       </Canvas>
       <ReportProgress />
-      <ResetViewButton />
-      <Dimensions />
     </>
   );
 };

@@ -10,7 +10,7 @@ import {
 import { blockedOptions } from '@/lib/pricing';
 
 /*
- * The one piece of state the panel and the 3D scene share: the current
+ * The one piece of state the UI and the 3D scene share: the current
  * selection. Everything else (price, locked options, what the scene shows) is
  * derived from it where it's needed, so it can never go out of sync.
  *
@@ -50,7 +50,7 @@ export const useConfigurator = create<ConfiguratorState>()((set, get) => ({
     const option = catalog.options.find((o) => o.key === optionKey);
     if (option?.groupKey !== groupKey) return;
 
-    // The panel already shows locked options as disabled, with the reason.
+    // The dock already shows locked options as disabled, with the reason.
     // This is the safety net, so no caller can put the store in a state the
     // rules forbid: only choices in the other groups can block this one.
     const others = Object.entries(selection)

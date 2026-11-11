@@ -1,4 +1,4 @@
-import rawCatalog from '@/data/catalog.json';
+import rawCatalog from './catalog.json';
 import { price } from '@/lib/pricing';
 
 import { catalogSchema } from './schema';

@@ -46,7 +46,7 @@ export function blockedOptions(
  * Turns any input (a parsed link, an old saved config) into a valid selection:
  * an unknown key, or one from the wrong group, falls back to the group's default;
  * an option blocked by an earlier group falls back to the default, or to the first
- * option that fits. Groups are settled in panel order, so earlier choices win.
+ * option that fits. Groups are settled in dock order, so earlier choices win.
  */
 export function resolveSelection(
   catalog: Catalog,
