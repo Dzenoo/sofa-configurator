@@ -38,10 +38,10 @@ interface Props {
 }
 
 /**
- * The sofa's entrance: when the loading screen leaves, the modules settle
- * into place one after another, each growing out of nothing while it comes
- * down the last few centimeters. It shows what the product is: a sofa made
- * of modules. The floor shadow follows by itself, since it is drawn from
+ * How a layout arrives, both when the loading screen leaves and whenever
+ * another layout is chosen: the modules settle into place one after another,
+ * each growing out of nothing while it comes down the last few centimeters.
+ * It shows what the product is: a sofa made of modules. The floor shadow follows by itself, since it is drawn from
  * what is on screen. Visitors who asked for less motion get the sofa at once.
  */
 export const Assemble: React.FC<Props> = ({ layout }) => {
@@ -69,12 +69,14 @@ export const Assemble: React.FC<Props> = ({ layout }) => {
     invalidate();
   };
 
-  const start = () => {
+  /** Assembles the layout from nothing, or just shows it whole for visitors who asked for less motion. */
+  const play = () => {
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     pieces.current.forEach((piece, i) => {
       piece.delay = i * TIMING.stagger;
     });
-    elapsed.current = 0;
-    running.current = true;
+    elapsed.current = still ? Infinity : 0;
+    running.current = !still;
     pose();
   };
 
@@ -96,8 +98,10 @@ export const Assemble: React.FC<Props> = ({ layout }) => {
         delay: 0,
       }));
 
-    // Before the loading screen leaves there is no sofa yet.
-    if (!useLoading.getState().done) pose();
+    // Before the loading screen leaves there is no sofa yet: the modules
+    // wait, hidden. After it, a newly chosen layout assembles right away.
+    if (useLoading.getState().done) play();
+    else pose();
 
     // A change of layout mid-way: leave the old one whole, as it really is.
     return () => {
@@ -107,18 +111,13 @@ export const Assemble: React.FC<Props> = ({ layout }) => {
         piece.node.scale.copy(piece.scale);
       }
     };
-    // pose only reads refs.
+    // play and pose only read refs.
   }, [layout]);
 
+  // The first assembly starts when the loading screen begins to leave.
   useEffect(() => {
-    if (!done) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      elapsed.current = Infinity;
-      pose();
-    } else {
-      start();
-    }
-    // start and pose only read refs.
+    if (done) play();
+    // play only reads refs.
   }, [done]);
 
   useFrame((_, delta) => {
