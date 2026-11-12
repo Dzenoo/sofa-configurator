@@ -2,6 +2,8 @@
 
 A 3D configurator for a modular sofa. Pick a layout, a fabric, the legs, the cushions and an ottoman; the sofa and the price update as you choose, and the exact configuration can be shared as a link.
 
+**Live:** https://sofa-configurator-dzenis.vercel.app
+
 It is a frontend project. There is no backend: the catalog is a JSON file and the price is computed in the browser. The products and prices are sample data.
 
 ## What it does
