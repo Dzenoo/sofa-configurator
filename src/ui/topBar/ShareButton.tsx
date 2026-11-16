@@ -2,7 +2,7 @@ import { Check, Link2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
-import { TOP_BAR } from '@/ui/content/topBar';
+import { TOP_BAR } from '@/content/topBar';
 import { shareUrl, type Catalog, type Selection } from '@/lib/data';
 
 /** Milliseconds the button says what happened before it goes back to "Share". */

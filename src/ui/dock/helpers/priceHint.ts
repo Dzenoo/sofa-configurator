@@ -1,6 +1,6 @@
-import { DOCK } from '@/ui/content/dock';
+import { DOCK } from '@/content/dock';
 import type { Option } from '@/lib/data';
-import { formatMoney } from '@/ui/utils/money';
+import { formatMoney } from '@/utils/money';
 
 /**
  * The price shown on an option. A group where every option costs something

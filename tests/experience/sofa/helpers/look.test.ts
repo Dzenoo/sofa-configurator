@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { getCatalog } from '@/lib/data';
 import { defaultSelection } from '@/lib/pricing';
 
-import { toLook } from '@/experience/sofa/utils/look';
+import { toLook } from '@/experience/sofa/helpers/look';
 
 const catalog = await getCatalog();
 const defaults = defaultSelection(catalog);

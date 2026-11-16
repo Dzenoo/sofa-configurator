@@ -1,6 +1,6 @@
 import { Radio } from '@base-ui/react/radio';
 
-import type { SilhouettePart } from '../utils/silhouettes';
+import type { SilhouettePart } from '../helpers/silhouettes';
 import type { OptionProps } from './OptionTile';
 import { SelectionMark } from './SelectionMark';
 import { Silhouette } from './Silhouette';

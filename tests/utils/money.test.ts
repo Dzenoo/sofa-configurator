@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatMoney } from '@/ui/utils/money';
+import { formatMoney } from '@/utils/money';
 
 describe('formatMoney()', () => {
   it('drops the cents on whole amounts and keeps them otherwise', () => {

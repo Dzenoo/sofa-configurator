@@ -2,7 +2,7 @@ import { OrbitControls } from '@react-three/drei';
 import { MathUtils } from 'three';
 
 import { FitToLayout } from './FitToLayout';
-import { useIdleTurn } from './utils/useIdleTurn';
+import { useIdleTurn } from './helpers/useIdleTurn';
 
 const VIEW = {
   /** Degrees; start angle around the sofa, positive = from the right. */

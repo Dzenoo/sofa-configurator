@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
-import { LOADER } from '@/ui/content/loader';
+import { LOADER } from '@/content/loader';
 import { useLoading } from '@/store/loading/useLoading';
 
 const COUNT = {

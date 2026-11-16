@@ -64,9 +64,12 @@ The app is written as if a backend existed, so adding one later means changing a
 
 ```
 src/
-├── ui/         everything that is HTML: dock, top bar, loading screen, texts
+├── ui/         everything that is HTML: dock, top bar, loading screen
 ├── experience/ everything that is 3D: sofa, camera, light
 ├── store/      state shared by the UI and the experience (Zustand)
+├── hooks/      hooks used by more than one part
+├── content/    all the text a visitor reads
+├── utils/      small helpers for the whole project (price formatting)
 └── lib/        catalog, share link and pricing, with no React
 tests/          unit tests, in the same layout as src/
 ```

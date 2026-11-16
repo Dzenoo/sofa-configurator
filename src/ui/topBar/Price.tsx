@@ -2,9 +2,9 @@ import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useId, useRef, useState } from 'react';
 
-import { TOP_BAR } from '@/ui/content/topBar';
+import { TOP_BAR } from '@/content/topBar';
 import type { Quote } from '@/lib/data';
-import { formatMoney } from '@/ui/utils/money';
+import { formatMoney } from '@/utils/money';
 
 import { AnimatedPrice } from './AnimatedPrice';
 import { PriceBreakdown } from './PriceBreakdown';

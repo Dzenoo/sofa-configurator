@@ -1,7 +1,7 @@
 import { animate, useReducedMotion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
-import { formatMoney } from '@/ui/utils/money';
+import { formatMoney } from '@/utils/money';
 
 /** Seconds; long enough to see the number run, short enough not to wait for it. */
 const COUNT = { duration: 0.5, ease: 'easeOut' } as const;

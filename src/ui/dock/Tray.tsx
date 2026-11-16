@@ -7,8 +7,8 @@ import { useId } from 'react';
 import type { BlockedOption, OptionGroup, Option } from '@/lib/data';
 
 import { LayoutOption } from './options/LayoutOption';
-import { priceHint } from './utils/priceHint';
-import { silhouetteOf } from './utils/silhouettes';
+import { priceHint } from './helpers/priceHint';
+import { silhouetteOf } from './helpers/silhouettes';
 import { OptionTile } from './options/OptionTile';
 import { SwatchOption } from './options/SwatchOption';
 

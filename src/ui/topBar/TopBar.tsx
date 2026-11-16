@@ -1,5 +1,5 @@
 import { useConfigurator } from '@/store/configurator/useConfigurator';
-import { useQuote } from '@/store/configurator/useQuote';
+import { useQuote } from '@/hooks/useQuote';
 
 import { Dimensions } from './Dimensions';
 import { Price } from './Price';

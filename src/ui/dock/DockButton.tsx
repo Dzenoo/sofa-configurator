@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 import type { GroupKey, OptionGroup, Option } from '@/lib/data';
 
-import { silhouetteOf } from './utils/silhouettes';
+import { silhouetteOf } from './helpers/silhouettes';
 import { Silhouette } from './options/Silhouette';
 
 /** Icons for the groups whose choice has no color or outline to show. */

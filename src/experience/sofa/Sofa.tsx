@@ -5,9 +5,9 @@ import { NoColorSpace } from 'three';
 
 import { Assemble } from './Assemble';
 import { FadeColor } from './FadeColor';
-import type { SofaLook } from './utils/look';
+import type { SofaLook } from './helpers/look';
 import { LegFinish } from './LegFinish';
-import { findSofaParts } from './utils/parts';
+import { findSofaParts } from './helpers/parts';
 import { Weave } from './Weave';
 
 const MODEL = {

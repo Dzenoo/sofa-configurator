@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { getCatalog } from '@/lib/data';
 
-import { priceHint } from '@/ui/dock/utils/priceHint';
+import { priceHint } from '@/ui/dock/helpers/priceHint';
 
 const catalog = await getCatalog();
 const group = (key: string) =>

@@ -3,7 +3,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 
 import { groupsInOrder, type GroupKey } from '@/lib/data';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
-import { useQuote } from '@/store/configurator/useQuote';
+import { useQuote } from '@/hooks/useQuote';
 
 import { DockButton } from './DockButton';
 import { Tray } from './Tray';

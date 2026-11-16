@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'motion/react';
 
-import { TOP_BAR } from '@/ui/content/topBar';
+import { TOP_BAR } from '@/content/topBar';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 /** Seconds; the old size fades out, then the new one fades in. */

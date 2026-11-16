@@ -1,6 +1,6 @@
-import { TOP_BAR } from '@/ui/content/topBar';
+import { TOP_BAR } from '@/content/topBar';
 import type { Quote } from '@/lib/data';
-import { formatMoney } from '@/ui/utils/money';
+import { formatMoney } from '@/utils/money';
 
 interface Props {
   quote: Quote;

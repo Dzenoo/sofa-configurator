@@ -1,4 +1,4 @@
-import { SILHOUETTE_BOX, type SilhouettePart } from '../utils/silhouettes';
+import { SILHOUETTE_BOX, type SilhouettePart } from '../helpers/silhouettes';
 
 /** Centimeters; the gap left between two parts and the rounding of their corners. */
 const DRAWING = { gap: 3, radius: 5 };

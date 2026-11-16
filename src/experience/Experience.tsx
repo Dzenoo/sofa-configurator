@@ -5,7 +5,7 @@ import { NeutralToneMapping } from 'three';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { Camera } from './camera/Camera';
-import { toLook } from './sofa/utils/look';
+import { toLook } from './sofa/helpers/look';
 import { Lighting } from './light/Lighting';
 import { ReportProgress } from './loading/ReportProgress';
 import { ReportReady } from './loading/ReportReady';

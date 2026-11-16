@@ -1,6 +1,6 @@
 import { RotateCcw } from 'lucide-react';
 
-import { TOP_BAR } from '@/ui/content/topBar';
+import { TOP_BAR } from '@/content/topBar';
 import { useView } from '@/store/view/useView';
 
 /** Back to the start angle, framed. The icon turns back a little under the pointer, like the view will. */
