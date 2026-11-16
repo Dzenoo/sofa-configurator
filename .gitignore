@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 CLAUDE.md
-MY RULES FOR WORK AND CODE.md
 node_modules
 dist
 dist-ssr
