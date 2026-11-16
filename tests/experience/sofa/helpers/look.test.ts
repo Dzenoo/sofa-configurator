@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { getCatalog } from '@/lib/data';
-import { defaultSelection } from '@/lib/pricing';
+import { getCatalog } from '@/lib/data/api';
+import { defaultSelection } from '@/lib/pricing/selection';
 
 import { toLook } from '@/experience/sofa/helpers/look';
 

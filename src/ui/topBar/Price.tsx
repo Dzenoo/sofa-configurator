@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useId, useRef, useState } from 'react';
 
 import { TOP_BAR } from '@/content/topBar';
-import type { Quote } from '@/lib/data';
+import type { Quote } from '@/lib/data/types';
 import { formatMoney } from '@/utils/money';
 
 import { AnimatedPrice } from './AnimatedPrice';

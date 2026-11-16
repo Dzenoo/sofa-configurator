@@ -1,5 +1,5 @@
 import { TOP_BAR } from '@/content/topBar';
-import type { Quote } from '@/lib/data';
+import type { Quote } from '@/lib/data/types';
 import { formatMoney } from '@/utils/money';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { groupsInOrder, resolveSelection } from '@/lib/pricing';
+import { groupsInOrder, resolveSelection } from '@/lib/pricing/selection';
 
 import type { Catalog, GroupKey, Selection } from './types';
 

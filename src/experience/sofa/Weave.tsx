@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber';
 import { useLayoutEffect } from 'react';
 import { NoColorSpace, RepeatWrapping, type MeshPhysicalMaterial } from 'three';
 
-import type { Weave as WeaveName } from '@/lib/data';
+import type { Weave as WeaveName } from '@/lib/data/types';
 
 /** Normal maps of the three weaves (ambientCG, CC0), 1024 px, tiling. Only the relief is used; color comes from the catalog. */
 const NORMAL_MAPS: Record<WeaveName, string> = {

@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 import { TOP_BAR } from '@/content/topBar';
-import { shareUrl, type Catalog, type Selection } from '@/lib/data';
+import { shareUrl } from '@/lib/data/link';
+import type { Catalog, Selection } from '@/lib/data/types';
 
 /** Milliseconds the button says what happened before it goes back to "Share". */
 const FEEDBACK_MS = 2500;

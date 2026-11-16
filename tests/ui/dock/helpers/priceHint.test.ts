@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { getCatalog } from '@/lib/data';
+import { getCatalog } from '@/lib/data/api';
 
 import { priceHint } from '@/ui/dock/helpers/priceHint';
 

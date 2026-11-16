@@ -1,11 +1,7 @@
 import { useEffect } from 'react';
 
-import {
-  CONFIG_PARAM,
-  defaultSelection,
-  encodeSelection,
-  shareUrl,
-} from '@/lib/data';
+import { CONFIG_PARAM, encodeSelection, shareUrl } from '@/lib/data/link';
+import { defaultSelection } from '@/lib/pricing/selection';
 
 import { useConfigurator } from './useConfigurator';
 

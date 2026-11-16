@@ -4,7 +4,7 @@ import { Lock } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useId } from 'react';
 
-import type { BlockedOption, OptionGroup, Option } from '@/lib/data';
+import type { BlockedOption, OptionGroup, Option } from '@/lib/data/types';
 
 import { LayoutOption } from './options/LayoutOption';
 import { priceHint } from './helpers/priceHint';

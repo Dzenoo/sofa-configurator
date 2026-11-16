@@ -1,5 +1,5 @@
 import rawCatalog from './catalog.json';
-import { price } from '@/lib/pricing';
+import { price } from '@/lib/pricing/price';
 
 import { catalogSchema } from './schema';
 import type { Catalog, Quote, Selection } from './types';
@@ -23,14 +23,3 @@ export function getCatalog(): Promise<Catalog> {
 export async function quote(selection: Selection): Promise<Quote> {
   return price(await getCatalog(), selection);
 }
-
-// Pure helpers the UI needs to read a catalog, passed through so components
-// keep a single door to the data.
-export { defaultSelection, groupsInOrder } from '@/lib/pricing';
-export {
-  CONFIG_PARAM,
-  encodeSelection,
-  selectionFromSearch,
-  shareUrl,
-} from './link';
-export type * from './types';

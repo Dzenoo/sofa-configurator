@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { quote, type Quote, type Selection } from '@/lib/data';
+import { quote } from '@/lib/data/api';
+import type { Quote, Selection } from '@/lib/data/types';
 
 /**
  * The quote for the current selection, through the data layer. It is async

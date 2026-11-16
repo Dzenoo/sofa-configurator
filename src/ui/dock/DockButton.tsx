@@ -2,7 +2,7 @@ import { cn } from 'cn';
 import { Layers, RectangleHorizontal, type LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 
-import type { GroupKey, OptionGroup, Option } from '@/lib/data';
+import type { GroupKey, OptionGroup, Option } from '@/lib/data/types';
 
 import { silhouetteOf } from './helpers/silhouettes';
 import { Silhouette } from './options/Silhouette';

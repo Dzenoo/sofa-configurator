@@ -1,7 +1,7 @@
 import { Radio } from '@base-ui/react/radio';
 import { Lock } from 'lucide-react';
 
-import type { Option } from '@/lib/data';
+import type { Option } from '@/lib/data/types';
 
 import { SelectionMark } from './SelectionMark';
 

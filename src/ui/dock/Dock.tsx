@@ -1,7 +1,8 @@
 import { AnimatePresence } from 'motion/react';
 import { useEffect, useId, useRef, useState } from 'react';
 
-import { groupsInOrder, type GroupKey } from '@/lib/data';
+import type { GroupKey } from '@/lib/data/types';
+import { groupsInOrder } from '@/lib/pricing/selection';
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 import { useQuote } from '@/hooks/useQuote';
 

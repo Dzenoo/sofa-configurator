@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import rawCatalog from '@/lib/data/catalog.json';
-import { defaultSelection } from '@/lib/pricing';
+import { defaultSelection } from '@/lib/pricing/selection';
 
 import {
   decodeSelection,

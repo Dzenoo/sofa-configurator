@@ -1,4 +1,4 @@
-import type { Catalog, Selection, Weave } from '@/lib/data';
+import type { Catalog, Selection, Weave } from '@/lib/data/types';
 
 /**
  * Everything the 3D sofa needs to draw a selection, and nothing about prices:

@@ -1,13 +1,9 @@
 import { create } from 'zustand';
 
-import {
-  getCatalog,
-  selectionFromSearch,
-  type Catalog,
-  type GroupKey,
-  type Selection,
-} from '@/lib/data';
-import { blockedOptions } from '@/lib/pricing';
+import { getCatalog } from '@/lib/data/api';
+import { selectionFromSearch } from '@/lib/data/link';
+import type { Catalog, GroupKey, Selection } from '@/lib/data/types';
+import { blockedOptions } from '@/lib/pricing/selection';
 
 /*
  * The one piece of state the UI and the 3D scene share: the current
