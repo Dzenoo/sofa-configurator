@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import type { GroupKey, OptionGroup, Option } from '@/lib/data/types';
 
 import { silhouetteOf } from './helpers/silhouettes';
+
 import { Silhouette } from './options/Silhouette';
 
 /** Icons for the groups whose choice has no color or outline to show. */
@@ -86,6 +87,7 @@ export const DockButton: React.FC<Props> = ({
 
       <span className="flex flex-col items-center leading-tight">
         <span className="text-xs font-medium">{group.name}</span>
+
         {/* Screen readers always get the choice; on a phone there is no room to show it. */}
         <span className="sr-only text-xs whitespace-nowrap text-foreground/60 sm:not-sr-only">
           {selected.name}

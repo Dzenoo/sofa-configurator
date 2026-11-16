@@ -1,9 +1,11 @@
+import { useEffect, useId, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useId, useRef, useState } from 'react';
 
 import { TOP_BAR } from '@/content/topBar';
+
 import type { Quote } from '@/lib/data/types';
+
 import { formatMoney } from '@/utils/money';
 
 import { AnimatedPrice } from './AnimatedPrice';
@@ -58,6 +60,7 @@ export const Price: React.FC<Props> = ({ quote }) => {
           className="size-4 text-foreground/50 transition-transform duration-300 group-aria-expanded:rotate-180"
         />
       </button>
+
       {/* What a screen reader hears: the final price once ("Total €1,314"),
           not every step of the count. Polite, and read as a whole. */}
       <span aria-live="polite" aria-atomic className="sr-only">

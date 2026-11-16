@@ -1,14 +1,15 @@
-import { useGLTF, useTexture } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
 import { useLayoutEffect, useMemo } from 'react';
 import { NoColorSpace } from 'three';
+import { useThree } from '@react-three/fiber';
+import { useGLTF, useTexture } from '@react-three/drei';
 
 import { Assemble } from './Assemble';
 import { FadeColor } from './FadeColor';
-import type { SofaLook } from './helpers/look';
 import { LegFinish } from './LegFinish';
-import { findSofaParts } from './helpers/parts';
 import { Weave } from './Weave';
+
+import type { SofaLook } from './helpers/look';
+import { findSofaParts } from './helpers/parts';
 
 const MODEL = {
   url: '/models/sofa/sofa.glb',
@@ -63,10 +64,14 @@ export const Sofa: React.FC<Props> = ({ look }) => {
   return (
     <>
       <primitive object={scene} />
+
       <FadeColor material={parts.fabric} color={look.fabricColor} />
       {legs && <FadeColor material={legs.material} color={look.legsColor} />}
+
       <Weave material={parts.fabric} weave={look.weave} />
+
       <LegFinish wood={parts.wood} metal={parts.metal} />
+
       {layout && <Assemble layout={layout} />}
     </>
   );

@@ -1,14 +1,15 @@
+import { useId } from 'react';
 import { RadioGroup } from '@base-ui/react/radio-group';
 import { cn } from 'cn';
 import { Lock } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useId } from 'react';
 
 import type { BlockedOption, OptionGroup, Option } from '@/lib/data/types';
 
-import { LayoutOption } from './options/LayoutOption';
 import { priceHint } from './helpers/priceHint';
 import { silhouetteOf } from './helpers/silhouettes';
+
+import { LayoutOption } from './options/LayoutOption';
 import { OptionTile } from './options/OptionTile';
 import { SwatchOption } from './options/SwatchOption';
 

@@ -1,5 +1,3 @@
-import { useTexture } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
 import { useLayoutEffect } from 'react';
 import {
   MathUtils,
@@ -7,6 +5,8 @@ import {
   SRGBColorSpace,
   type MeshStandardMaterial,
 } from 'three';
+import { useThree } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
 
 /**
  * Wood maps (ambientCG, CC0), 512 × 256 px, tiling.

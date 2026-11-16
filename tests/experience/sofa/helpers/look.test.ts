@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
+import { toLook } from '@/experience/sofa/helpers/look';
+
 import { getCatalog } from '@/lib/data/api';
 import { defaultSelection } from '@/lib/pricing/selection';
-
-import { toLook } from '@/experience/sofa/helpers/look';
 
 const catalog = await getCatalog();
 const defaults = defaultSelection(catalog);

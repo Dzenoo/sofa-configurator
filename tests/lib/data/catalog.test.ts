@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import rawCatalog from '@/lib/data/catalog.json';
-
 import { getCatalog, quote } from '@/lib/data/api';
+import rawCatalog from '@/lib/data/catalog.json';
 import { catalogSchema } from '@/lib/data/schema';
 
 /** A deep copy of the real catalog to break on purpose. */

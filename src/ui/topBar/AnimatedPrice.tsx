@@ -1,5 +1,5 @@
-import { animate, useReducedMotion } from 'motion/react';
 import { useEffect, useRef } from 'react';
+import { animate, useReducedMotion } from 'motion/react';
 
 import { formatMoney } from '@/utils/money';
 

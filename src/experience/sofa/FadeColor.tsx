@@ -1,6 +1,6 @@
-import { useFrame, useThree } from '@react-three/fiber';
 import { useLayoutEffect, useRef } from 'react';
 import { Color } from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
 
 /** Speed of the fade, per second: at 8 most of the change is done in about a third of a second. */
 const SPEED = 8;

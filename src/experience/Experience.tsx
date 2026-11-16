@@ -1,14 +1,17 @@
-import { Canvas } from '@react-three/fiber';
 import { Suspense, useMemo } from 'react';
 import { NeutralToneMapping } from 'three';
+import { Canvas } from '@react-three/fiber';
 
 import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { Camera } from './camera/Camera';
-import { toLook } from './sofa/helpers/look';
+
 import { Lighting } from './light/Lighting';
+
 import { ReportProgress } from './loading/ReportProgress';
 import { ReportReady } from './loading/ReportReady';
+
+import { toLook } from './sofa/helpers/look';
 import { Sofa } from './sofa/Sofa';
 
 const SCENE = {
@@ -50,11 +53,16 @@ export const Experience: React.FC = () => {
             unlit, and the camera frames it only once it exists. */}
         <Suspense fallback={null}>
           <Lighting />
+
           <Sofa look={look} />
+
           <Camera layout={look.layout} />
+
+          {/* Last, so it mounts only once everything above it has loaded. */}
           <ReportReady />
         </Suspense>
       </Canvas>
+
       <ReportProgress />
     </>
   );

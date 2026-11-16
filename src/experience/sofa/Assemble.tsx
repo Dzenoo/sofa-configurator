@@ -1,6 +1,6 @@
-import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Vector3, type Object3D } from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
 
 import { useLoading } from '@/store/loading/useLoading';
 

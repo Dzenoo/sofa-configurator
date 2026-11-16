@@ -1,5 +1,7 @@
 import { TOP_BAR } from '@/content/topBar';
+
 import type { Quote } from '@/lib/data/types';
+
 import { formatMoney } from '@/utils/money';
 
 interface Props {
@@ -13,6 +15,7 @@ export const PriceBreakdown: React.FC<Props> = ({ quote }) => (
       <div key={line.key} className="flex justify-between gap-6">
         <dt className="text-muted-foreground">
           {line.label}
+
           {/* The count only matters when it multiplies a price. */}
           {line.amountCents > 0 &&
             line.quantity > 1 &&

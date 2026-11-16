@@ -1,5 +1,7 @@
 import { DOCK } from '@/content/dock';
+
 import type { Option } from '@/lib/data/types';
+
 import { formatMoney } from '@/utils/money';
 
 /**

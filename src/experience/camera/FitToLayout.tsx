@@ -1,6 +1,6 @@
-import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Box3, MathUtils, Spherical, Vector3 } from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
 
 import { useView } from '@/store/view/useView';
 

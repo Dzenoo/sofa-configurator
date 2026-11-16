@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import rawCatalog from '@/lib/data/catalog.json';
 import { catalogSchema } from '@/lib/data/schema';
 import type { Catalog, GroupKey, Option, Selection } from '@/lib/data/types';
-
 import { price } from '@/lib/pricing/price';
 import {
   blockedOptions,

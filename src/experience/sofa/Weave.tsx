@@ -1,7 +1,7 @@
-import { useTexture } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
 import { useLayoutEffect } from 'react';
 import { NoColorSpace, RepeatWrapping, type MeshPhysicalMaterial } from 'three';
+import { useThree } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
 
 import type { Weave as WeaveName } from '@/lib/data/types';
 

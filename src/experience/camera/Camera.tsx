@@ -1,7 +1,8 @@
-import { OrbitControls } from '@react-three/drei';
 import { MathUtils } from 'three';
+import { OrbitControls } from '@react-three/drei';
 
 import { FitToLayout } from './FitToLayout';
+
 import { useIdleTurn } from './helpers/useIdleTurn';
 
 const VIEW = {
@@ -62,6 +63,7 @@ export const Camera: React.FC<Props> = ({ layout }) => {
         autoRotate={idle}
         autoRotateSpeed={FEEL.idleSpeed}
       />
+
       <FitToLayout
         layout={layout}
         azimuth={VIEW.azimuth}

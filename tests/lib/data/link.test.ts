@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
 import rawCatalog from '@/lib/data/catalog.json';
-import { defaultSelection } from '@/lib/pricing/selection';
-
 import {
   decodeSelection,
   encodeSelection,
@@ -11,6 +9,7 @@ import {
 } from '@/lib/data/link';
 import { catalogSchema } from '@/lib/data/schema';
 import type { Selection } from '@/lib/data/types';
+import { defaultSelection } from '@/lib/pricing/selection';
 
 const catalog = catalogSchema.parse(rawCatalog);
 const defaults = defaultSelection(catalog);

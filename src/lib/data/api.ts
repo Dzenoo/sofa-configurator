@@ -1,6 +1,6 @@
-import rawCatalog from './catalog.json';
 import { price } from '@/lib/pricing/price';
 
+import rawCatalog from './catalog.json';
 import { catalogSchema } from './schema';
 import type { Catalog, Quote, Selection } from './types';
 

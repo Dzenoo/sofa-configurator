@@ -30,6 +30,7 @@ const SHADOW = {
 export const Lighting: React.FC = () => (
   <>
     <Studio />
+
     <ContactShadows
       position={SHADOW.position}
       scale={SHADOW.scale}

@@ -1,5 +1,5 @@
-import { useThree } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
+import { useThree } from '@react-three/fiber';
 
 import { useView } from '@/store/view/useView';
 

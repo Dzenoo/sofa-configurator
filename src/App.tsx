@@ -43,8 +43,10 @@ const App: React.FC = () => {
         </div>
 
         <TopBar />
+
         <Dock />
       </main>
+
       <Loader />
     </MotionConfig>
   );

@@ -1,5 +1,6 @@
-import { useConfigurator } from '@/store/configurator/useConfigurator';
 import { useQuote } from '@/hooks/useQuote';
+
+import { useConfigurator } from '@/store/configurator/useConfigurator';
 
 import { Dimensions } from './Dimensions';
 import { Price } from './Price';
@@ -24,6 +25,7 @@ export const TopBar: React.FC = () => {
         <h1 className="font-heading text-4xl leading-none lg:text-6xl">
           {catalog.product.name}
         </h1>
+
         {/* Fixed height, so nothing below jumps when the first price arrives. */}
         <div className="mt-1 h-9">{quote && <Price quote={quote} />}</div>
         <Dimensions />

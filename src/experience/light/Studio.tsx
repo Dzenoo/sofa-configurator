@@ -1,5 +1,5 @@
-import { Environment, Lightformer } from '@react-three/drei';
 import { MathUtils, Vector3 } from 'three';
+import { Environment, Lightformer } from '@react-three/drei';
 
 const STUDIO = {
   /** Meters; how far the panels stand from the sofa. Only their direction and size matter to the light. */
@@ -100,6 +100,7 @@ export const Studio: React.FC = () => (
         target={STUDIO.aim}
       />
     </Environment>
+
     <directionalLight position={KEY_POSITION} intensity={KEY.direct} />
   </>
 );

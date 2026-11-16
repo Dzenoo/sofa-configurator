@@ -35,6 +35,7 @@ export const SwatchOption: React.FC<Props> = ({
         className="block size-full rounded-full border border-black/10 transition-transform duration-300 group-hover:scale-110 group-data-disabled:scale-100 group-data-disabled:opacity-40"
         style={{ backgroundColor: color }}
       />
+
       {/* 2px off the swatch, 2px wide. */}
       {selected && (
         <SelectionMark id={markId} className="-inset-1 rounded-full border-2" />

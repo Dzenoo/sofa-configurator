@@ -1,10 +1,12 @@
-import { AnimatePresence } from 'motion/react';
 import { useEffect, useId, useRef, useState } from 'react';
+import { AnimatePresence } from 'motion/react';
+
+import { useQuote } from '@/hooks/useQuote';
 
 import type { GroupKey } from '@/lib/data/types';
 import { groupsInOrder } from '@/lib/pricing/selection';
+
 import { useConfigurator } from '@/store/configurator/useConfigurator';
-import { useQuote } from '@/hooks/useQuote';
 
 import { DockButton } from './DockButton';
 import { Tray } from './Tray';

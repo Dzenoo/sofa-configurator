@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
 import { Check, Link2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
 
 import { TOP_BAR } from '@/content/topBar';
+
 import { shareUrl } from '@/lib/data/link';
 import type { Catalog, Selection } from '@/lib/data/types';
 
@@ -67,6 +68,7 @@ export const ShareButton: React.FC<Props> = ({ catalog, selection }) => {
           className="flex items-center gap-2"
         >
           <Icon aria-hidden className="size-4 shrink-0" />
+
           {/* Announced when it changes, so "Link copied" is heard too. */}
           <span aria-live="polite">{label}</span>
         </motion.span>
