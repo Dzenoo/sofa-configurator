@@ -64,14 +64,14 @@ The app is written as if a backend existed, so adding one later means changing a
 
 ```
 src/
-├── ui/        everything that is HTML: dock, top bar, loading screen, texts
-├── scene/     everything that is 3D: sofa, camera, light
-├── store/     state shared by the UI and the scene (Zustand)
-└── lib/       catalog, share link and pricing, with no React
-tests/         unit tests, in the same layout as src/
+├── ui/         everything that is HTML: dock, top bar, loading screen, texts
+├── experience/ everything that is 3D: sofa, camera, light
+├── store/      state shared by the UI and the experience (Zustand)
+└── lib/        catalog, share link and pricing, with no React
+tests/          unit tests, in the same layout as src/
 ```
 
-The UI and the scene never import each other. Both read the current selection from the store, and the scene is only told what to draw: it knows nothing about prices.
+The UI and the 3D experience never import each other. Both read the current selection from the store, and the experience is only told what to draw: it knows nothing about prices.
 
 ## Assets and licenses
 

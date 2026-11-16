@@ -6,7 +6,7 @@ import { create } from 'zustand';
  */
 
 interface LoadingState {
-  /** 0–1; share of the scene's files (model, textures, HDRI) that have arrived. */
+  /** 0–1; share of the scene's files (model, textures) that have arrived. */
   progress: number;
   /** The scene has everything and is on screen behind the loading screen. */
   ready: boolean;

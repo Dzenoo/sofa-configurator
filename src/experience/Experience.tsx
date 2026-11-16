@@ -29,7 +29,8 @@ const SCENE = {
  */
 const GL = { toneMapping: NeutralToneMapping };
 
-export const Scene: React.FC = () => {
+/** Everything that is 3D: the canvas with the light, the sofa and the camera. */
+export const Experience: React.FC = () => {
   const catalog = useConfigurator((state) => state.catalog);
   const selection = useConfigurator((state) => state.selection);
   const look = useMemo(
